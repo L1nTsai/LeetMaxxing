@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+/*
+ * Vercel (Geist) palette. Neutral by default; blue is reserved for links and
+ * focus, and the green/amber/red trio only marks difficulty and status.
+ * No shadows, gradients or glows.
+ */
 :root {
+  color-scheme: light dark;
   --background: #ffffff;
+  --background-subtle: #fafafa;
+  --muted: #f2f2f2;
+  --border: #eaeaea;
+  --border-strong: #c9c9c9;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --foreground-secondary: #666666;
+  --foreground-tertiary: #8f8f8f;
+  --primary: #171717;
+  --primary-hover: #383838;
+  --primary-foreground: #ffffff;
+  --accent: #0070f3;
+  --success: #297a3a;
+  --success-subtle: #ebfaeb;
+  --warning: #a35200;
+  --warning-subtle: #fff4d6;
+  --danger: #cb2a2f;
+  --danger-subtle: #ffebeb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
+    --background-subtle: #111111;
+    --muted: #1a1a1a;
+    --border: #2e2e2e;
+    --border-strong: #454545;
     --foreground: #ededed;
+    --foreground-secondary: #a1a1a1;
+    --foreground-tertiary: #878787;
+    --primary: #ededed;
+    --primary-hover: #cccccc;
+    --primary-foreground: #0a0a0a;
+    --accent: #3291ff;
+    --success: #62c073;
+    --success-subtle: #0f2e18;
+    --warning: #f1a10d;
+    --warning-subtle: #331b00;
+    --danger: #ff6166;
+    --danger-subtle: #3c1618;
   }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-background-subtle: var(--background-subtle);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-tertiary: var(--foreground-tertiary);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--danger-subtle);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
 }
